@@ -1,0 +1,17 @@
+[
+  {"front": "CPU", "back": "Central Processing Unit"},
+  {"front": "RAM", "back": "Random Access Memory"},
+  {"front": "SSD", "back": "Solid State Drive"},
+  {"front": "NIC", "back": "Network Interface Card"},
+  {"front": "DNS", "back": "Domain Name System"},
+  {"front": "DHCP", "back": "Dynamic Host Configuration Protocol"},
+  {"front": "HTTP", "back": "HyperText Transfer Protocol"},
+  {"front": "HTTPS", "back": "HyperText Transfer Protocol Secure"},
+  {"front": "SSH", "back": "Secure Shell"},
+  {"front": "FTP", "back": "File Transfer Protocol"},
+  {"front": "SMTP", "back": "Simple Mail Transfer Protocol"},
+  {"front": "IMAP", "back": "Internet Message Access Protocol"},
+  {"front": "VPN", "back": "Virtual Private Network"},
+  {"front": "NAT", "back": "Network Address Translation"},
+  {"front": "RAID", "back": "Redundant Array of Independent Disks"}
+]

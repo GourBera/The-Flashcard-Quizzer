@@ -1,0 +1,19 @@
+{
+  "cards": [
+    {"front": "What keyword is used to define a function in Python?", "back": "def"},
+    {"front": "What built-in function returns the number of items in a list?", "back": "len"},
+    {"front": "What data structure stores key-value pairs in Python?", "back": "dict"},
+    {"front": "Which keyword creates a class in Python?", "back": "class"},
+    {"front": "What does the 'self' parameter represent in a class method?", "back": "the instance of the class"},
+    {"front": "What module is used for regular expressions in Python?", "back": "re"},
+    {"front": "What is the output of type([]) in Python?", "back": "<class 'list'>"},
+    {"front": "Which keyword is used to handle exceptions in Python?", "back": "try"},
+    {"front": "What does PEP stand for?", "back": "Python Enhancement Proposal"},
+    {"front": "What is a list comprehension?", "back": "a concise way to create lists using a single line expression"},
+    {"front": "What keyword makes a function return a value lazily (one at a time)?", "back": "yield"},
+    {"front": "What built-in function converts a string to an integer?", "back": "int"},
+    {"front": "What does 'pip' stand for?", "back": "Pip Installs Packages"},
+    {"front": "What is the difference between a list and a tuple?", "back": "lists are mutable, tuples are immutable"},
+    {"front": "What decorator marks a method as belonging to the class, not an instance?", "back": "@classmethod"}
+  ]
+}

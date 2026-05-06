@@ -1,0 +1,8 @@
+{
+  "color_enabled": true,
+  "export_enabled": false,
+  "export_path": "quiz_results.json",
+  "export_format": "json",
+  "log_level": "WARNING",
+  "default_mode": "sequential"
+}
