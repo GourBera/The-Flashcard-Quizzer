@@ -57,8 +57,8 @@ def _parse_raw_cards(raw: Any, source: str) -> list[FlashCard]:
     else:
         raise FlashCardLoadError(
             f"'{source}' must be a JSON array or an object with a 'cards' key.\n"
-            "  Expected: [{\"front\": \"...\", \"back\": \"...\"}] "
-            "or {\"cards\": [...]}"
+            '  Expected: [{"front": "...", "back": "..."}] '
+            'or {"cards": [...]}'
         )
 
     if not isinstance(card_list, list):

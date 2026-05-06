@@ -14,7 +14,6 @@ from utils.data_loader import FlashCard, load_flashcards
 from utils.quiz_engine import AdaptiveMode, QuizModeFactory, QuizSession, SequentialMode
 from utils.stats_tracker import SessionStats
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -129,7 +128,13 @@ class TestFullSession:
         stats = SessionStats()
         stats.on_answer(FlashCard("Q", "A"), correct=True)
         summary = stats.summary()
-        expected_keys = {"total", "correct", "incorrect", "accuracy_pct", "missed_terms"}
+        expected_keys = {
+            "total",
+            "correct",
+            "incorrect",
+            "accuracy_pct",
+            "missed_terms",
+        }
         assert expected_keys == set(summary.keys())
 
     def test_session_accuracy_zero_when_no_questions(self) -> None:
@@ -171,9 +176,7 @@ class TestDataLoaderIntegration:
         cards = load_flashcards(path)
 
         stats = SessionStats()
-        session = QuizSession(
-            mode=SequentialMode(), cards=cards, listeners=[stats]
-        )
+        session = QuizSession(mode=SequentialMode(), cards=cards, listeners=[stats])
         card = session.next_card()
         session.record_answer(card, "DEFINE FUNCTION")  # type: ignore[arg-type]
         assert stats.correct_count == 1

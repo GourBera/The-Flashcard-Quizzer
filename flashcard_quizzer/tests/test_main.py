@@ -11,7 +11,6 @@ from unittest.mock import patch
 
 import main as app_main
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -128,12 +127,17 @@ class TestExport:
         deck_path = _write_deck([{"front": "Q1", "back": "A1"}])
         export_path = str(tmp_path / "results.json")
         with patch("builtins.input", side_effect=["A1", EOFError]):
-            code = app_main.main([
-                "--file", deck_path,
-                "--mode", "sequential",
-                "--no-color",
-                "--export", export_path,
-            ])
+            code = app_main.main(
+                [
+                    "--file",
+                    deck_path,
+                    "--mode",
+                    "sequential",
+                    "--no-color",
+                    "--export",
+                    export_path,
+                ]
+            )
         os.unlink(deck_path)
         assert code == 0
         assert os.path.exists(export_path)
@@ -145,12 +149,17 @@ class TestExport:
         deck_path = _write_deck([{"front": "Q1", "back": "A1"}])
         export_path = str(tmp_path / "results.csv")
         with patch("builtins.input", side_effect=["A1", EOFError]):
-            code = app_main.main([
-                "--file", deck_path,
-                "--mode", "sequential",
-                "--no-color",
-                "--export", export_path,
-            ])
+            code = app_main.main(
+                [
+                    "--file",
+                    deck_path,
+                    "--mode",
+                    "sequential",
+                    "--no-color",
+                    "--export",
+                    export_path,
+                ]
+            )
         os.unlink(deck_path)
         assert code == 0
         assert os.path.exists(export_path)
@@ -178,19 +187,24 @@ class TestHelpers:
     def test_run_quiz_eof_mid_session(self, capsys) -> None:
         """Covers the EOFError break when input ends before all cards are answered."""
         # 3 cards but only 1 answer — EOFError raised on 2nd prompt
-        deck_path = _write_deck([
-            {"front": "Q1", "back": "A1"},
-            {"front": "Q2", "back": "A2"},
-            {"front": "Q3", "back": "A3"},
-        ])
+        deck_path = _write_deck(
+            [
+                {"front": "Q1", "back": "A1"},
+                {"front": "Q2", "back": "A2"},
+                {"front": "Q3", "back": "A3"},
+            ]
+        )
         with patch("builtins.input", side_effect=["A1", EOFError]):
-            code = app_main.main(["--file", deck_path, "--mode", "sequential", "--no-color"])
+            code = app_main.main(
+                ["--file", deck_path, "--mode", "sequential", "--no-color"]
+            )
         os.unlink(deck_path)
         assert code == 0
 
     def test_run_quiz_invalid_mode_returns_1(self, capsys) -> None:
         """Covers the ValueError path when the quiz mode string is invalid."""
         from utils.config import AppConfig
+
         deck_path = _write_deck(_SAMPLE)
         # Bypass argparse by calling run_quiz directly with a bogus mode string
         code = app_main.run_quiz(
@@ -213,11 +227,15 @@ class TestHelpers:
             patch("builtins.input", side_effect=["A", EOFError]),
             patch("main.load_config", return_value=config),
         ):
-            code = app_main.main([
-                "--file", deck_path,
-                "--mode", "sequential",
-                "--no-color",
-            ])
+            code = app_main.main(
+                [
+                    "--file",
+                    deck_path,
+                    "--mode",
+                    "sequential",
+                    "--no-color",
+                ]
+            )
         os.unlink(deck_path)
         assert code == 0
         assert os.path.exists(export_path)
@@ -232,12 +250,17 @@ class TestHelpers:
             patch("builtins.input", side_effect=["A", EOFError]),
             patch("main.export_session", side_effect=ExportError("disk full")),
         ):
-            code = app_main.main([
-                "--file", deck_path,
-                "--mode", "sequential",
-                "--no-color",
-                "--export", export_path,
-            ])
+            code = app_main.main(
+                [
+                    "--file",
+                    deck_path,
+                    "--mode",
+                    "sequential",
+                    "--no-color",
+                    "--export",
+                    export_path,
+                ]
+            )
         os.unlink(deck_path)
         assert code == 0  # Export error is non-fatal
         captured = capsys.readouterr()

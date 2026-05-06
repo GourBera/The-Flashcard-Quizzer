@@ -43,9 +43,7 @@ def export_session(
     """
     fmt = fmt.strip().lower()
     if fmt not in ("json", "csv"):
-        raise ExportError(
-            f"Unknown export format '{fmt}'. Valid formats: json, csv."
-        )
+        raise ExportError(f"Unknown export format '{fmt}'. Valid formats: json, csv.")
 
     summary = stats.summary()
     summary["timestamp"] = datetime.now().isoformat(timespec="seconds")
@@ -59,9 +57,7 @@ def export_session(
         else:
             _export_csv(summary, filepath)
     except OSError as exc:
-        raise ExportError(
-            f"Could not write export file '{filepath}': {exc}"
-        ) from exc
+        raise ExportError(f"Could not write export file '{filepath}': {exc}") from exc
 
     logger.info("Session exported to '%s' (%s).", filepath, fmt.upper())
     print(f"  Results exported to: {filepath}")

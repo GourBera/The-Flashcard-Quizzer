@@ -20,7 +20,6 @@ from utils.exporter import ExportError, export_session
 from utils.stats_tracker import SessionStats
 from utils import ui
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -214,7 +213,9 @@ class TestExporter:
     def test_export_json_content(self) -> None:
         stats = make_stats(correct=2, wrong=1)
         path = self._temp_path(".json")
-        export_session(stats, path, fmt="json", deck_name="test.json", mode="sequential")
+        export_session(
+            stats, path, fmt="json", deck_name="test.json", mode="sequential"
+        )
         with open(path) as fh:
             data = json.load(fh)
         assert data["total"] == 3
@@ -265,6 +266,7 @@ class TestExporter:
     def test_export_oserror_raises_export_error(self) -> None:
         """Covers the OSError → ExportError conversion path."""
         from unittest.mock import patch as _patch
+
         stats = make_stats(correct=1, wrong=0)
         path = self._temp_path(".json")
         with _patch("builtins.open", side_effect=OSError("permission denied")):

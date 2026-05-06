@@ -18,7 +18,6 @@ import pytest
 
 from utils.data_loader import FlashCard, FlashCardLoadError, load_flashcards
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------

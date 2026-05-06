@@ -80,7 +80,9 @@ class SessionStats(QuizObserver):
             if card.front not in fronts:
                 self.missed.append(card)
         logger.debug(
-            "SessionStats updated: total=%d, correct=%d.", self.total, self.correct_count
+            "SessionStats updated: total=%d, correct=%d.",
+            self.total,
+            self.correct_count,
         )
 
     def on_session_end(self) -> None:

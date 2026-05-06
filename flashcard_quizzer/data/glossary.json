@@ -1,0 +1,22 @@
+[
+  {
+    "front": "CPU",
+    "back": "Central Processing Unit"
+  },
+  {
+    "front": "RAM",
+    "back": "Random Access Memory"
+  },
+  {
+    "front": "API",
+    "back": "Application Programming Interface"
+  },
+  {
+    "front": "HTTP",
+    "back": "Hypertext Transfer Protocol"
+  },
+  {
+    "front": "DNS",
+    "back": "Domain Name System"
+  }
+]

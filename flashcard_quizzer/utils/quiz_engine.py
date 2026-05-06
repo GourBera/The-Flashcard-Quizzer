@@ -306,9 +306,7 @@ class QuizModeFactory:
         key = mode.strip().lower()
         if key not in _MODE_REGISTRY:
             valid = ", ".join(sorted(_MODE_REGISTRY))
-            raise ValueError(
-                f"Unknown quiz mode '{mode}'. Valid modes are: {valid}."
-            )
+            raise ValueError(f"Unknown quiz mode '{mode}'. Valid modes are: {valid}.")
         return _MODE_REGISTRY[key]()
 
     @staticmethod
