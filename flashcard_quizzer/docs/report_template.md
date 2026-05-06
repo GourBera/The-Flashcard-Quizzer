@@ -1,8 +1,11 @@
 # Final Project Report — The Flashcard Quizzer
 
 **Student:** Gour Bera
+
 **Course:** Udacity AI Engineering
+
 **Project:** The Flashcard Quizzer CLI Application
+
 **Date:** May 2026
 
 ---
